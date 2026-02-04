@@ -44,7 +44,7 @@ public class Reflector {
     public void callMethodWithNoParameters(Object object, String methodName) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         validateAnnotation(object);
         final Class<?> clazz = object.getClass();
-        final Method methodField = clazz.getDeclaredMethod(methodName, new Class<?>[0]);
+        final Method methodField = clazz.getDeclaredMethod(methodName);
         methodField.setAccessible(true);
         final Object invoke = methodField.invoke(object);
         System.out.println(invoke);
