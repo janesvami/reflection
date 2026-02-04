@@ -2,7 +2,7 @@ package reflection;
 
 import java.time.LocalDate;
 
-//@Investigable
+@Investigable
 public class Person {
 
     private String name;
@@ -24,13 +24,13 @@ public class Person {
     }
 
     private int countAge(LocalDate birthday) {
-        int birthdayYear = birthday.getYear();
-        int currentYear = LocalDate.now().getYear();
-        int result = currentYear - birthdayYear;
-        int currentMonth = LocalDate.now().getMonthValue();
-        int birthdayMonth = birthday.getMonthValue();
-        int birthdayDate = birthday.getDayOfMonth();
-        int currentDate = LocalDate.now().getDayOfMonth();
+        final int birthdayYear = birthday.getYear();
+        final int currentYear = LocalDate.now().getYear();
+        final int result = currentYear - birthdayYear;
+        final int currentMonth = LocalDate.now().getMonthValue();
+        final int birthdayMonth = birthday.getMonthValue();
+        final int birthdayDate = birthday.getDayOfMonth();
+        final int currentDate = LocalDate.now().getDayOfMonth();
         if (currentMonth < birthdayMonth || (currentMonth == birthdayMonth && birthdayDate < currentDate)) {
             return result - 1;
         }
@@ -45,13 +45,12 @@ public class Person {
     }
 
     private String checkWeight(int height, int weight) {
-        int index = height - weight;
+       final int index = height - weight;
         if (index > 125) {
             return "Weight deficiency";
         } else if (index < 85) {
             return "Overweight!";
         }
-
         return "Normal weight";
     }
 
