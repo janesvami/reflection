@@ -82,7 +82,7 @@ public class Reflector {
     private static void validateAnnotation(Object object) {
         final Class<?> clazz = object.getClass();
         if (!clazz.isAnnotationPresent(Investigable.class)) {
-            throw new IllegalArgumentException("Class " + clazz + " is not investigable");
+            throw new IllegalArgumentException("Class " + clazz.getName() + " is not investigable");
         }
     }
 
